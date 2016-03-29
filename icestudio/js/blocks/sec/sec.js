@@ -40,8 +40,8 @@ angular.module('app')
                         { name: "M", value: M }
                     ],
     				id: nodeID++,
-    				x: 50, y: 100 + i * 60,
-    				width: 150 + item.length * 8,
+    				x: 100, y: 200 + i * 120,
+    				width: 300 + item.length * 16,
     				vcode: divv,
     				inputConnectors: [
                         { name: "clk", label: "clk" }
@@ -83,8 +83,8 @@ angular.module('app')
                         { name: "M", value: M }
                     ],
     				id: nodeID++,
-    				x: 50, y: 100 + i * 60,
-    				width: 150 + item.length * 8,
+    				x: 100, y: 200 + i * 120,
+    				width: 300 + item.length * 16,
     				vcode: timerv,
     				inputConnectors: [
                         { name: "clk", label: "clk" }
@@ -105,8 +105,8 @@ angular.module('app')
             params: [],
             vcode: counterv,
             id: nodeID++,
-            x: 50, y: 100,
-            width: 150,
+            x: 100, y: 200,
+            width: 300,
             inputConnectors: [
                 { name: "clk", label: "clk" },
                 { name: "ena", label: "ena" }
@@ -128,8 +128,8 @@ angular.module('app')
             params: [],
             vcode: flipflopv,
             id: nodeID++,
-            x: 50, y: 100,
-            width: 150,
+            x: 100, y: 200,
+            width: 300,
             inputConnectors: [
                 { name: "clk", label: "clk" },
                 { name: "rst", label: "rst" },
@@ -150,8 +150,8 @@ angular.module('app')
             params: [],
             vcode: notesv,
             id: nodeID++,
-            x: 50, y: 100,
-            width: 150,
+            x: 100, y: 200,
+            width: 300,
             inputConnectors: [
                 { name: "clk", label: "clk" }
             ],

@@ -5,7 +5,6 @@ Generic reset.
 * {
 	margin: 0;
 	padding: 0;
-	transition: all 0.1s ease;
 	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -47,29 +46,29 @@ Styles for nodes and connectors.
 
 .node-rect {
 	stroke: #67727A;
-	stroke-width: 1;
+	stroke-width: 2;
 }
 
 .mouseover-node-rect {
 	stroke: #67727A;
-	stroke-width: 2;
+	stroke-width: 4;
 }
 
 .selected-node-rect {
 	stroke: #D75C37;
-	stroke-width: 3;
+	stroke-width: 6;
 }
 
 .connector-circle {
     fill: white;
     stroke: #67727A;
-    stroke-width: 1;
+    stroke-width: 2;
 }
 
 .mouseover-connector-circle {
     fill: white;
     stroke: #67727A;
-    stroke-width: 3;
+    stroke-width: 8;
 }
 
 /*
@@ -81,19 +80,19 @@ Style for connections.
 
 .connection-line {
 	stroke: #C3D7DF;
-	stroke-width: 3;
+	stroke-width: 10;
 	fill: transparent;
 }
 
 .mouseover-connection-line {
 	stroke: #C3D7DF;
-	stroke-width: 4;
+	stroke-width: 10;
 	fill: transparent;
 }
 
 .selected-connection-line {
 	stroke: #D75C37;
-	stroke-width: 4;
+	stroke-width: 12;
 	fill: transparent;
 }
 
@@ -130,7 +129,7 @@ Style for the connection being dragged out.
 
 .dragging-connection-line {
 	stroke: #C3D7DF;
-	stroke-width: 3;
+	stroke-width: 10;
 	fill: transparent;
 }
 
@@ -152,6 +151,6 @@ Drag selection rectangle.
 
 .drag-selection-rect {
 	stroke: #C3D7DF;
-	stroke-width: 2;
+	stroke-width: 5;
 	fill: transparent;
 }

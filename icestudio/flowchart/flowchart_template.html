@@ -51,6 +51,7 @@
       text-anchor="middle"
       font-weight="bold"
       alignment-baseline="middle"
+      font-size="30px"
       >
       {{node.label()}}
     </text>
@@ -60,11 +61,12 @@
       ng-repeat="connector in node.inputConnectors"
       >
       <text
-        ng-attr-x="{{connector.x() + 20}}"
+        ng-attr-x="{{connector.x() + 35}}"
         ng-attr-y="{{connector.y()}}"
         cursor="pointer"
         text-anchor="left"
         alignment-baseline="middle"
+	font-size="30px"
         >
         {{connector.label()}}
       </text>
@@ -87,11 +89,12 @@
       ng-repeat="connector in node.outputConnectors"
       >
       <text
-        ng-attr-x="{{connector.x() - 20}}"
+        ng-attr-x="{{connector.x() - 35}}"
         ng-attr-y="{{connector.y()}}"
         cursor="pointer"
         text-anchor="end"
         alignment-baseline="middle"
+	font-size="30px"
         >
         {{connector.label()}}
       </text>

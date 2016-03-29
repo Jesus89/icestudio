@@ -18,8 +18,8 @@ angular.module('app')
             ],
             vcode: bitv,
             id: nodeID++,
-            x: 50, y: 100,
-            width: 55,
+            x: 100, y: 200,
+            width: 100,
             outputConnectors: [ {
                 name: "o",
                 label: "\"" + value + "\""

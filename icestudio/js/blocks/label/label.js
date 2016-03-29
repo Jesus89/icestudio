@@ -27,8 +27,8 @@ angular.module('app')
     				type: "linput",
     				params: [ item ],
     				id: nodeID++,
-    				x: 50, y: 100 + i * 60,
-    				width: 40 + item.length * 8,
+    				x: 100, y: 200 + i * 120,
+    				width: 80 + item.length * 16,
     				outputConnectors: [ {
                         value: item,
                         label: item
@@ -61,8 +61,8 @@ angular.module('app')
     				type: "loutput",
     				params: [ item ],
     				id: nodeID++,
-    				x: 50, y: 100 + i * 60,
-    				width: 40 + item.length * 8,
+    				x: 100, y: 200 + i * 120,
+    				width: 80 + item.length * 16,
     				inputConnectors: [ {
                         value: item,
                         label: item

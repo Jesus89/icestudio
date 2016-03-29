@@ -16,8 +16,8 @@ angular.module('app')
             params: [],
             vcode: muxv,
             id: nodeID++,
-            x: 50, y: 100,
-            width: 150,
+            x: 100, y: 200,
+            width: 300,
             inputConnectors: [
                 { name: "c0", label: "c0" },
                 { name: "c1", label: "c1" },
@@ -37,8 +37,8 @@ angular.module('app')
             params: [],
             vcode: decv,
             id: nodeID++,
-            x: 50, y: 100,
-            width: 140,
+            x: 100, y: 200,
+            width: 280,
             inputConnectors: [
                 { name: "c", label: "c" }
             ],

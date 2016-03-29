@@ -18,8 +18,8 @@ angular.module('app')
             params: [],
             vcode: notv,
             id: nodeID++,
-            x: 50, y: 100,
-            width: 80,
+            x: 100, y: 200,
+            width: 160,
             inputConnectors: [
                 { name: "i", label: "" }
             ],
@@ -37,8 +37,8 @@ angular.module('app')
             params: [],
             vcode: andv,
             id: nodeID++,
-            x: 50, y: 100,
-            width: 80,
+            x: 100, y: 200,
+            width: 160,
             inputConnectors: [
                 { name: "a", label: "" },
                 { name: "b", label: "" }
@@ -57,8 +57,8 @@ angular.module('app')
             params: [],
             vcode: orv,
             id: nodeID++,
-            x: 50, y: 100,
-            width: 80,
+            x: 100, y: 200,
+            width: 160,
             inputConnectors: [
                 { name: "a", label: "" },
                 { name: "b", label: "" }
@@ -77,8 +77,8 @@ angular.module('app')
             params: [],
             vcode: xorv,
             id: nodeID++,
-            x: 50, y: 100,
-            width: 80,
+            x: 100, y: 200,
+            width: 160,
             inputConnectors: [
                 { name: "a", label: "" },
                 { name: "b", label: "" }

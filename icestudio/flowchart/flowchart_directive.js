@@ -98,7 +98,7 @@ angular.module('flowChart', ['dragging'] )
 	// Init data-model variables.
 	//
 	$scope.draggingConnection = false;
-	$scope.connectorSize = 8;
+	$scope.connectorSize = 15;
 	$scope.dragSelecting = false;
 	/* Can use this to test the drag selection rect.
 	$scope.dragSelectionRect = {

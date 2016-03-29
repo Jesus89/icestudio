@@ -16,7 +16,7 @@ __license__ = 'GNU General Public License v2 http://www.gnu.org/licenses/gpl2.ht
 
 
 VIRTUALENV = join(dirname(abspath(__file__)), 'virtualenv-14.0.1')
-ICESTUDIO_PATH = join(expanduser('~'), '.icestudio')
+ICESTUDIO_PATH = join('/custom/click/com.ubuntu.puritine/0.6/libertine-data/libertine-container/puritine/rootfs/home/', '.icestudio')
 if system() == 'Windows':
     ICESTUDIO_BIN = join(ICESTUDIO_PATH, 'Scripts')
 else:
@@ -24,7 +24,6 @@ else:
 ICESTUDIO_PIP = join(ICESTUDIO_BIN, 'pip')
 ICESTUDIO_APIO = join(ICESTUDIO_BIN, 'apio')
 PYTHON_EXE = normpath(sys.executable)
-
 
 def run(commands):
     result = {
@@ -59,10 +58,18 @@ run([PYTHON_EXE, '--version'])
 if isdir(ICESTUDIO_PATH):
     shutil.rmtree(ICESTUDIO_PATH)
 
+print 1
+
 run([PYTHON_EXE, join(VIRTUALENV, 'virtualenv.py'), ICESTUDIO_PATH])
+
+print 2
 
 run([ICESTUDIO_PIP, 'install', '-U', 'apio'])
 
+print 3
+
 run([ICESTUDIO_APIO, '--version'])
+
+print 4
 
 run([ICESTUDIO_APIO, 'install'])
