@@ -34,11 +34,6 @@ angular.module('icestudio')
 
     // Functions
 
-    this.getState = function() {
-      // Clone state
-      return utils.clone(state);
-    };
-
     this.setState = function(_state) {
       if (!_state) {
         _state = {
@@ -999,8 +994,6 @@ angular.module('icestudio')
         $('body').addClass('waiting');
 
         setTimeout(function() {
-
-          self.setState(design.state);
 
           commandManager.stopListening();
 

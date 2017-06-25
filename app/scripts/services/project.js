@@ -31,8 +31,7 @@ angular.module('icestudio')
         },
         design: {
           board: '',
-          graph: { blocks: [], wires: [] },
-          state: { pan: { x: 0, y: 0 }, zoom: 1.0 }
+          graph: { blocks: [], wires: [] }
         },
         dependencies: {}
       };
@@ -49,7 +48,6 @@ angular.module('icestudio')
       },
       design: {
         graph: { blocks: [], wires: [] }
-        state: { pan: { x: 0, y: 0 }, zoom: 1.0 }
       },
     }
     */
@@ -76,7 +74,6 @@ angular.module('icestudio')
 
       graph.clearAll();
       graph.resetCommandStack();
-      graph.setState(project.design.state);
 
       alertify.success(gettextCatalog.getString('New project {{name}} created', { name: utils.bold(name) }));
     };
@@ -154,7 +151,7 @@ angular.module('icestudio')
       var project = {};
       switch(data.version) {
         case common.VERSION:
-          project = data;
+          project = assignData(data);
           break;
         case '1.0':
           project = convert10To11(data);
@@ -167,11 +164,19 @@ angular.module('icestudio')
       return project;
     }
 
+    function assignData(data) {
+      var project = _default();
+      project.package = data.package;
+      project.design.board = data.design.board;
+      project.design.graph = data.design.graph;
+      project.dependencies = data.dependencies;
+      return project;
+    }
+
     function convert10To11(data) {
       var project = _default();
       project.package = data.package;
       project.design.board = data.design.board;
-      project.design.state = data.design.state;
       project.design.graph = data.design.graph;
 
       var depsInfo = findSubDependencies10(data.design.deps);
@@ -233,8 +238,7 @@ angular.module('icestudio')
         design: {
           board: '',
           graph: {},
-          deps: {},
-          state: {}
+          deps: {}
         },
       };
       for (var b in data.graph.blocks) {
@@ -292,7 +296,6 @@ angular.module('icestudio')
       }
       project.design.board = data.board;
       project.design.graph = data.graph;
-      project.design.state = data.state;
       // Safe load all dependencies recursively
       for (var key in data.deps) {
         project.design.deps[key] = convertTo10(data.deps[key], key);
@@ -529,14 +532,6 @@ angular.module('icestudio')
       project.design.board = p.design.board;
       project.design.graph = p.design.graph;
       project.dependencies = p.dependencies;
-      var state = graph.getState();
-      project.design.state = {
-        pan: {
-          x: parseFloat(state.pan.x.toFixed(4)),
-          y: parseFloat(state.pan.y.toFixed(4))
-        },
-        zoom: parseFloat(state.zoom.toFixed(4))
-      };
 
       if (callback) {
         callback();
