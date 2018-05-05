@@ -97,13 +97,17 @@ joint.routers.ice = (function(g, _, joint) {
   // Helper structure to identify whether a point lies in an obstacle.
   function ObstacleMap(opt) {
 
+    console.log('CONSTRUCTOR');
+
     this.map = {};
     this.options = opt;
     // tells how to divide the paper when creating the elements map
-    this.mapGridSize = 100;
+    this.mapGridSize = 64;
   }
 
   ObstacleMap.prototype.build = function(graph, link) {
+
+    console.log('BUILD');
 
     var opt = this.options;
 
@@ -133,7 +137,8 @@ joint.routers.ice = (function(g, _, joint) {
     // to go through all obstacles, we check only those in a particular cell.
     var mapGridSize = this.mapGridSize;
 
-    _.chain(graph.getElements())
+    // Compute rectangles from all the blocks
+    var blockRectangles =_.chain(graph.getElements())
     // remove source and target element if required
     .difference(excludedEnds)
     // remove all elements whose type is listed in excludedTypes array
@@ -142,7 +147,17 @@ joint.routers.ice = (function(g, _, joint) {
       return _.contains(opt.excludeTypes, element.get('type')) || _.contains(excludedAncestors, element.id);
     })
     // change elements (models) to their bounding boxes
-    .invoke('getBBox')
+    .invoke('getBBox').value();
+
+    // Compute rectangles from all the port labels
+    var labelsRectangles = $('.port-label').map(function(index, node) {
+      return g.rect(V(node).bbox());
+    }).toArray();
+
+    console.log('LABELS', labelsRectangles);
+
+    // Add all rectangles to the map's grid
+    _.chain(blockRectangles.concat(labelsRectangles))
     // expand their boxes by specific padding
     .invoke('moveAndExpand', opt.paddingBox)
     // build the map
@@ -150,6 +165,8 @@ joint.routers.ice = (function(g, _, joint) {
 
       var origin = bbox.origin().snapToGrid(mapGridSize);
       var corner = bbox.corner().snapToGrid(mapGridSize);
+
+      // console.log('BBOX', bbox, origin, corner);
 
       for (var x = origin.x; x <= corner.x; x += mapGridSize) {
         for (var y = origin.y; y <= corner.y; y += mapGridSize) {
@@ -164,6 +181,8 @@ joint.routers.ice = (function(g, _, joint) {
       return map;
 
       }, this.map).value();
+
+    console.log('MAP', this.map);
 
     return this;
   };
